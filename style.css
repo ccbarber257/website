@@ -7,8 +7,8 @@
 }
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #c0392b;
+    --primary-color: #0867ff;
+    --secondary-color: #fffdfd;
     --text-color: #333;
     --light-bg: #f4f4f4;
 }
@@ -29,33 +29,31 @@ nav {
     z-index: 1000;
 }
 
-.logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
 nav ul {
     list-style: none;
     display: flex;
 }
 
 nav ul li a {
-    color: white;
+    color: black;          
     text-decoration: none;
     padding: 0.5rem 1rem;
     margin-left: 1rem;
     transition: 0.3s;
+    background-color: white;
+    display: block;          
 }
 
 nav ul li a:hover, nav ul li a.active {
-    background-color: var(--secondary-color);
-    border-radius: 4px;
+    background-color: #f0f0f0;  /* Changed from var(--secondary-color) to light gray */
+    border-radius: 0;           /* Changed from 4px to 0 for square corners */
 }
 
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('barbershop-bg.jpg');
+    background-image: linear-gradient(to right, 
+        rgb(255, 255, 255) 50%, 
+        rgb(255, 0, 0) 50%);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -63,11 +61,29 @@ nav ul li a:hover, nav ul li a.active {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: black;
     padding: 0 1rem;
 }
 
+.logo {
+    font-family: 'Teko'; src:url('MKStencilsansBlack.ttf') format('truetype');
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-align: left;
+    text-transform: uppercase;
+}
+
 .hero h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 48px;
+            letter-spacing: 2px;
+            color: #333;
+            text-align: center;
+            text-transform: uppercase;
+}
+
+.hero h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
@@ -87,7 +103,8 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .cta-button:hover {
-    background-color: #a53125;
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px #007bff; 
 }
 
 section {
@@ -104,7 +121,7 @@ h2 {
     color: var(--primary-color);
 }
 
-.hours-grid, .services-grid {
+.hours-grid, .services-grid, .aboutus-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -118,15 +135,50 @@ h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.service-card i {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
+.service-card {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
-.contact-section {
-    background-color: var(--light-bg);
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px #007bff; 
 }
+
+.hours-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px #007bff; 
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #007bff; 
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.service-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #666;
+    margin-top: 10px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
 
 .contact-container {
     display: grid;
@@ -141,6 +193,11 @@ h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.contact-info:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px #007bff; 
+}
+
 .map {
     border-radius: 8px;
     overflow: hidden;
@@ -153,16 +210,60 @@ footer {
     text-align: center;
 }
 
+.info-section {
+    padding: 20px;
+}
 
+.info-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.info-section > div {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 35px;
+    color: #333;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.highlight {
+    color: #007bff; /* or your brand color */
+    font-weight: 600;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
-    .video-container video {
-        display: none;
+    .info-section > div {
+        flex-direction: column;
     }
-    
+
     .video-container {
         background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('barbershop-bg.jpg');
         background-size: cover;
         background-position: center;
+    }
+
+    .about-content, .about-image {
+        width: 100%;
     }
 }
 
@@ -186,4 +287,34 @@ nav {
 nav ul li a.active {
     background-color: var(--secondary-color);
     border-radius: 4px;
+}
+
+.schedule-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 25px; /* Makes the button rounded */
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.schedule-btn:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px #007bff; 
+}
+
+.schedule-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.schedule-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.3);
 }
