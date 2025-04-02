@@ -6,30 +6,43 @@
     <title>Community Corners BARBERSHOP</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Dancing+Script&family=Permanent+Marker&family=Kalam&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <div class="logo">Community Corners BARBERSHOP <small><font color="red">"Old Fashioned Men's Barber Shop"</font></small></div>
+        <div class="logo">CORNERS BARBERSHOP <small><font color="black">"Old Fashioned Men's Barber Shop</font></small></div>
         <ul>
             <li><a href="#home">Home</a></li>
+            <li><a href="#aboutus">About Us</a></li>
             <li><a href="#hours">Hours</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contactus">Contact</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
         </ul>
     </nav>
 
     <header id="home">
         <div class="hero">
-            <div class="video-container">
-                <video autoplay muted loop id="myVideo">
-                    <source src="barber2vi.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="hero-content">
+                <h1>Welcome to Community Corners BARBERSHOP</h1>
+                <p><font size="10">Top-notch hair services at OUR Barbershop. Your perfect haircut is just a visit away.</font></p>
             </div>
         </div>
     </header>
 
-    <section id="hours" class="info-section">
+    <section id="aboutus">
+        <h2>About Us</h2>
+        <div class="aboutus-grid">
+            <div class="about-content">
+                <p>At <span class="highlight">Community Corners BARBERSHOP</span>, we pride ourselves on providing the best hair services in Ithaca, NY. Our experienced barbers are dedicated to ensuring you leave our shop looking and feeling your best.</p>
+                <p>We offer a range of services from classic haircuts to traditional shaves, all tailored to meet your individual needs.</p>
+            </div>
+            <div class="about-image">
+                <img src="ccbarber.avif" alt="Barbershop Interior">
+            </div>
+        </div>
+    </section>
+
+    <section id="hours">
         <h2>Hours of Operation</h2>
         <div class="hours-grid">
             <div class="hours-card">
@@ -44,7 +57,11 @@
                 <h3>Sunday - Monday</h3>
                 <p>Closed</p>
             </div>
+            <div class="hours-card">
+                <button class="schedule-btn">Book Now</button>
+            </div>
         </div>
+
     </section>
 
     <section id="services">
@@ -53,19 +70,32 @@
             <div class="service-card">
                 <i class="fas fa-cut"></i>
                 <h3>Classic Haircut</h3>
+                <p class="service-description">Experience precision and style with our classic haircut service. Our skilled barbers will work with you to achieve the perfect cut that suits your face shape and personal style, ensuring you leave looking and feeling your best.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-razor"></i>
                 <h3>Traditional Shave</h3>
+                <p class="service-description">Indulge in the timeless luxury of a traditional straight razor shave. Using hot towels, premium shaving creams, and expert technique, we provide a close, comfortable shave that leaves your skin smooth and refreshed.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-magic"></i>
                 <h3>Beard Trim</h3>
+                <p class="service-description">Enhance your look with our expert beard trimming services. From neat and precise shaping to full beard grooming, our barbers will ensure your facial hair is styled to perfection.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Hair Coloring</h3>
+                <p class="service-description">Add a pop of color to your hair with our professional hair coloring services. Whether you want a bold new look or subtle highlights, our talented stylists will create a customized color that complements your skin tone and personality.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-spa"></i>
+                <h3>Facial Treatments</h3>
+                <p class="service-description">Pamper yourself with our rejuvenating facial treatments. Experience relaxation and skin benefits with our range of facial services designed to cleanse, exfoliate, and revitalize your skin.</p>
             </div>
         </div>
     </section>
 
-    <section id="contactus" class="contact-section">
+    <section id="contactus">
         <h2>Contact Us</h2>
         <div class="contact-container">
             <div class="contact-info">
@@ -73,9 +103,6 @@
                 <p><i class="fas fa-map-marker-alt"></i> 903 Hanshaw Road</p>
                 <p>Ithaca, NY 14850</p>
                 <p><i class="fas fa-phone"></i> (607) 257-1633</p>
-                <div class="contact-item">
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:ccbarber257@gmail.com">ccbarber257@gmail.com</a></p>
-                </div>
                 <div class="hours">
                     <h3>Business Hours</h3>
                     <p>Tuesday - Friday: 8:00 AM - 5:00 PM</p>
