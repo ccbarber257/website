@@ -266,12 +266,13 @@ footer {
     line-height: 1.8;
     font-size: 22px;
     color: #333;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Kalam', cursive;
 }
 
 .about-content p {
-    margin-bottom: 20px;
-    display: inline-block; /* This helps contain the underline to text width */
+    margin-bottom: 30px;
+    font-family: 'Kalam', cursive;
+    display: inline-block; 
     position: relative;
 }
 
