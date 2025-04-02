@@ -32,21 +32,53 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: black;          
+    color: #333;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin-left: 1rem;
-    transition: 0.3s;
+    font-size: 16px;
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
     background-color: white;
-    display: block;          
 }
 
-nav ul li a:hover, nav ul li a.active {
-    background-color: #f0f0f0;  /* Changed from var(--secondary-color) to light gray */
-    border-radius: 0;           /* Changed from 4px to 0 for square corners */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    font-size: 18px;
+    color: #bedeef;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: calc(100% - 30px);
+}
+
+nav ul li a.active {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #d4e8fe;
 }
 
 .hero {
@@ -232,21 +264,34 @@ footer {
     margin: 0 auto;
     padding: 20px;
     line-height: 1.8;
-    font-size: 35px;
+    font-size: 22px;
     color: #333;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .about-content p {
     margin-bottom: 20px;
-    font-family: 'Dancing Script', cursive;
+    display: inline-block; /* This helps contain the underline to text width */
+    position: relative;
 }
 
-.about-content p:last-child {
-    margin-bottom: 0;
+.about-content p::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #007bff;
+    transition: width 0.3s ease-in-out;
+}
+
+.about-content p:hover::after {
+    width: 100%;
 }
 
 .highlight {
-    color: #007bff; /* or your brand color */
+    color: #007bff;
     font-weight: 600;
 }
 
@@ -272,22 +317,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Update your nav styles if needed */
-nav {
-    background-color: var(--primary-color);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-nav ul li a.active {
-    background-color: var(--secondary-color);
-    border-radius: 4px;
-}
 
 .schedule-btn {
     background-color: #007bff;
