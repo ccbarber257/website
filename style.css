@@ -84,8 +84,12 @@ nav ul li a.active {
 .hero {
     height: 100vh;
     background-image: linear-gradient(to right, 
-        rgb(255, 255, 255) 50%, 
-        rgb(255, 0, 0) 50%);
+        red 0%, 
+        red 33.33%, 
+        white 33.33%, 
+        white 66.66%, 
+        blue 66.66%, 
+        blue 100%);
     background-size: cover;
     background-position: center;
     display: flex;
