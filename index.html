@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Corners BARBERSHOP</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Dancing+Script&family=Permanent+Marker&family=Kalam&display=swap" rel="stylesheet">
 </head>
@@ -116,7 +116,35 @@
         </div>
     </footer>
 
+    <!-- Add this JavaScript before the closing body tag -->
     <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Your existing scroll spy code
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... (keep your existing scroll spy code)
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             // Get all sections
             const sections = document.querySelectorAll('section');
