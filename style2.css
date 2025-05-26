@@ -1,0 +1,256 @@
+/* Base styles and variables */
+:root {
+    --primary-color: #0867ff;
+    --secondary-color: #fffdfd;
+    --text-color: #333;
+    --light-bg: #f4f4f4;
+    --nav-height: 70px;
+    --padding-mobile: 15px;
+    --padding-desktop: 5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Mobile-first approach */
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--primary-color);
+    padding: 1rem var(--padding-mobile);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* Mobile menu button */
+.mobile-menu-btn {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Mobile navigation menu */
+nav ul {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+nav ul.active {
+    display: flex;
+}
+
+nav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    padding: calc(var(--nav-height) + 20px) var(--padding-mobile) 20px;
+    background: linear-gradient(to bottom, 
+        #ff9999 0%,
+        #ff9999 33.33%,
+        white 33.33%,
+        white 66.66%,
+        #99ccff 66.66%,
+        #99ccff 100%);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Sections */
+section {
+    padding: 40px var(--padding-mobile);
+}
+
+/* Grid layouts */
+.hours-grid,
+.services-grid,
+.aboutus-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Cards */
+.hours-card,
+.service-card,
+.contact-info {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Contact section */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.map {
+    height: 300px;
+    width: 100%;
+}
+
+/* Buttons */
+.cta-button,
+.schedule-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* About section */
+.about-content {
+    font-size: 18px;
+    padding: 20px var(--padding-mobile);
+}
+
+/* Desktop styles */
+@media screen and (min-width: 768px) {
+    /* Navigation */
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    nav {
+        padding: 1rem var(--padding-desktop);
+    }
+
+    nav ul {
+        display: flex;
+        position: static;
+        width: auto;
+        flex-direction: row;
+        padding: 0;
+        background: none;
+    }
+
+    nav ul li {
+        width: auto;
+        margin: 0 15px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: calc(var(--nav-height) + 40px) var(--padding-desktop) 40px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 24px;
+    }
+
+    /* Sections */
+    section {
+        padding: 80px var(--padding-desktop);
+    }
+
+    /* Grids */
+    .hours-grid,
+    .services-grid,
+    .aboutus-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    /* Contact */
+    .contact-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Buttons */
+    .cta-button,
+    .schedule-btn {
+        width: auto;
+    }
+}
+
+/* Large desktop styles */
+@media screen and (min-width: 1200px) {
+    :root {
+        --padding-desktop: 10%;
+    }
+
+    .hero h1 {
+        font-size: 64px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Animation classes */
+@media (hover: hover) {
+    .service-card:hover,
+    .hours-card:hover,
+    .contact-info:hover {
+        transform: translateY(-10px);
+        transition: transform 0.3s ease;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
