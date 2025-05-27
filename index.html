@@ -34,12 +34,34 @@
         <h2>About Us</h2>
         <div class="aboutus-grid">
             <div class="about-content">
-                <p>At <span class="highlight">Community Corners BARBERSHOP</span>, we pride ourselves on providing the best hair services in Ithaca, NY. Our experienced barbers are dedicated to ensuring you leave our shop looking and feeling your best.</p>
-                <p>We offer a range of services from classic haircuts to traditional shaves, all tailored to meet your individual needs.</p>
+                <p>At <span class="highlight">Community Corners BARBERSHOP</span>, we pride ourselves on providing the best hair services in Ithaca, NY. We ensure you leave our shop looking and feeling your best.</p>
+                <div class="about-image">
+                    <img src="ccbarber.avif" alt="Barbershop Interior">
+                    <div class="border-top"></div>
+                    <div class="border-bottom"></div>
+                </div>
+                <div class="cut-grid">
+                    <div class="cut-image" onclick="openModal(this.querySelector('img').src)">
+                        <img src="Prices.jpg" alt="Prices" loading="lazy">
+                        <div class="image-caption">Offerings</div>
+                    </div>
+                    <div class="cut-image" onclick="openModal(this.querySelector('img').src)">
+                        <img src="cut1.jpg" alt="Hair cut style 1" loading="lazy">
+                        <div class="image-caption">Classic Cut</div>
+                    </div>
+                    <div class="cut-image" onclick="openModal(this.querySelector('img').src)">
+                        <img src="cut2.jpg" alt="Hair cut style 2" loading="lazy">
+                        <div class="image-caption">Modern Style</div>
+                    </div>
+                </div>
+            
+                <!-- Modal -->
+                <div id="imageModal" class="image-modal">
+                    <span class="close-modal" onclick="closeModal()">&times;</span>
+                    <img class="modal-content" id="modalImage">
+                </div>
             </div>
-            <div class="about-image">
-                <img src="ccbarber.avif" alt="Barbershop Interior">
-            </div>
+
         </div>
     </section>
 
@@ -66,18 +88,23 @@
         <div class="services-grid">
             <div class="service-card">
                 <i class="fas fa-cut"></i>
-                <h3>Classic Haircut</h3>
-                <p class="service-description">Experience precision and style with our classic haircut service. Our skilled barbers will work with you to achieve the perfect cut that suits your face shape and personal style, ensuring you leave looking and feeling your best.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-razor"></i>
-                <h3>Traditional Shave</h3>
-                <p class="service-description">Indulge in the timeless luxury of a traditional straight razor shave. Using hot towels, premium shaving creams, and expert technique, we provide a close, comfortable shave that leaves your skin smooth and refreshed.</p>
+                <h3>Haircut ($21)</h3>
+                <p class="service-description">Experience precision and style with our haircut services. We will work with you to achieve the perfect cut that suits your face shape and personal style, ensuring you leave looking and feeling your best.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-magic"></i>
-                <h3>Beard Trim</h3>
-                <p class="service-description">Enhance your look with our expert beard trimming services. From neat and precise shaping to full beard grooming, our barbers will ensure your facial hair is styled to perfection.</p>
+                <h3>Beard Trim ($8)</h3>
+                <p class="service-description">Enhance your look with our expert beard trimming services. From neat and precise shaping to full beard grooming, we will ensure your facial hair is styled to perfection.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-scissors"></i>
+                <h3>Long Hair Services ($26)</h3>
+                <p class="service-description">Expert styling and cutting services for long hair. Whether you need a trim, layers, or a complete style change, we will help you achieve your desired look while maintaining your hair's health.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-child"></i>
+                <h3>Children's Cuts ($26)</h3>
+                <p class="service-description">Specialized haircuts for our young clients in a friendly and comfortable environment. We ensure a positive experience while delivering great styles for children under 12 years old.</p>
             </div>
         </div>
     </section>
@@ -118,6 +145,32 @@
 
     <!-- Add this JavaScript before the closing body tag -->
     <script>
+
+        // Modal functionality
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
         document.addEventListener('DOMContentLoaded', function() {
             // Get all sections
             const sections = document.querySelectorAll('section');
