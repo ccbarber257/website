@@ -118,33 +118,6 @@
 
     <!-- Add this JavaScript before the closing body tag -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('nav')) {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Your existing scroll spy code
-        document.addEventListener('DOMContentLoaded', function() {
-            // ... (keep your existing scroll spy code)
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
             // Get all sections
             const sections = document.querySelectorAll('section');
