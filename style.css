@@ -18,13 +18,6 @@ body {
     color: var(--text-color);
 }
 
-/* Mobile menu button */
-.mobile-menu-btn {
-    display: block;
-    cursor: pointer;
-    padding: 10px;
-}
-
 nav {
     background-color: var(--primary-color);
     padding: 1rem 5%;
