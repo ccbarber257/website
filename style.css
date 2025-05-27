@@ -157,7 +157,87 @@ h2 {
     color: var(--primary-color);
 }
 
-.hours-grid, .services-grid, .aboutus-grid {
+/* About image styles */
+.about-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+/* Image styles */
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Border animation elements */
+.about-image::before,
+.about-image::after,
+.border-top,
+.border-bottom {
+    content: '';
+    position: absolute;
+    background-color: #007bff;
+    transition: all 0.8s ease;
+}
+
+/* Horizontal lines (top and bottom) */
+.about-image::before,
+.about-image::after {
+    height: 4px; /* Thicker border */
+    width: 0;
+}
+
+/* Vertical lines (left and right) */
+.border-top,
+.border-bottom {
+    width: 4px; /* Thicker border */
+    height: 0;
+}
+
+/* Positioning the lines */
+.about-image::before {
+    top: 0;
+    right: 0;
+}
+
+.about-image::after {
+    bottom: 0;
+    left: 0;
+}
+
+.border-top {
+    top: 0;
+    left: 0;
+}
+
+.border-bottom {
+    bottom: 0;
+    right: 0;
+}
+
+/* Hover animations */
+.about-image:hover::before,
+.about-image:hover::after {
+    width: 100%;
+}
+
+.about-image:hover .border-top,
+.about-image:hover .border-bottom {
+    height: 100%;
+}
+
+/* Optional: Add subtle zoom effect */
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.hours-grid, .services-grid, .aboutus-grid, .cut-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -312,7 +392,7 @@ footer {
         background-position: center;
     }
 
-    .about-content, .about-image {
+    .about-content {
         width: 100%;
     }
 }
@@ -351,4 +431,107 @@ html {
 .schedule-btn:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(0,123,255,0.3);
+}
+
+.cut-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    aspect-ratio: 3/4;
+    background-color: #fff;
+}
+
+.cut-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* Hover effect */
+.cut-image:hover img {
+    transform: scale(1.2);
+}
+
+/* Image caption */
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.cut-image:hover .image-caption {
+    transform: translateY(0);
+}
+
+/* Modal for enlarged view */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media screen and (min-width: 768px) {
+    .cut-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .cut-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .cut-image {
+        max-height: 600px;
+    }
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.cut-image img {
+    animation: fadeIn 0.5s ease-in;
 }
