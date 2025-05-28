@@ -18,65 +18,131 @@ body {
     color: var(--text-color);
 }
 
+/* Navigation styles */
 nav {
     background-color: var(--primary-color);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0.5rem 5%;
     position: fixed;
     width: 100%;
     z-index: 1000;
 }
 
-nav ul {
-    list-style: none;
+.nav-wrapper {
     display: flex;
-    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo styles */
+.logo {
+    font-family: 'Teko', sans-serif;
+    font-size: clamp(20px, 4vw, 30px);
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Navigation menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
     margin: 0;
+    padding: 0;
+    gap: 20px;
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-nav ul li a {
+.nav-menu li a {
     color: #333;
     text-decoration: none;
     font-size: 16px;
-    position: relative;
     padding: 8px 16px;
     border-radius: 25px;
+    background-color: white;
     transition: all 0.3s ease;
-    display: inline-block;
-    background-color: white;
 }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    transition: width 0.3s ease-in-out;
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
 }
 
-nav ul li a:hover {
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu li a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    /* Hamburger animation */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -5px);
+    }
+
+    .cut-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cut-image {
+        max-height: 600px;
+    }
+}
+
+/* Hover effects */
+.nav-menu li a:hover {
     background-color: rgba(0, 123, 255, 0.1);
-    font-size: 18px;
     color: #bedeef;
 }
 
-nav ul li a:hover::after,
-nav ul li a.active::after {
-    width: calc(100% - 30px);
-}
-
-nav ul li a.active {
+/* Active state */
+.nav-menu li a.active {
     background-color: rgba(0, 123, 255, 0.1);
     color: #d4e8fe;
 }
@@ -326,22 +392,6 @@ footer {
     text-align: center;
 }
 
-.info-section {
-    padding: 20px;
-}
-
-.info-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.info-section > div {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 .about-content {
     max-width: 800px;
@@ -400,37 +450,6 @@ footer {
 /* Add to your existing CSS */
 html {
     scroll-behavior: smooth;
-}
-
-
-.schedule-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 25px; /* Makes the button rounded */
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.schedule-btn:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 4px 10px #007bff; 
-}
-
-.schedule-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.schedule-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0,123,255,0.3);
 }
 
 .cut-image {
@@ -507,23 +526,6 @@ html {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-}
-
-/* Responsive Design */
-@media screen and (min-width: 768px) {
-    .cut-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .cut-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .cut-image {
-        max-height: 600px;
-    }
 }
 
 /* Loading animation */
