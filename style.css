@@ -79,8 +79,55 @@ nav {
     transition: all 0.3s ease;
 }
 
+/* Contact links styling */
+.phone-link,
+.location-link {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.phone-link:hover,
+.location-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.phone-link:active {
+    transform: translateY(0);
+}
+
+/* Phone link specific styles */
+.phone-link {
+    cursor: pointer;
+}
+
+.phone-link i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+/* Location link specific styles */
+.location-link i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+
 /* Mobile styles */
 @media screen and (max-width: 768px) {
+
+    .info-section > div {
+        flex-direction: column;
+    }
+
+    .about-content {
+        width: 100%;
+    }
+
     .hamburger {
         display: block;
     }
@@ -132,6 +179,29 @@ nav {
     
     .cut-image {
         max-height: 600px;
+    }
+
+    .phone-link,
+    .location-link {
+        padding: 10px; /* Larger touch target on mobile */
+    }
+
+    .contact-info p {
+        margin: 15px 0;
+    }
+    
+    /* Optional: Make the phone number stand out more on mobile */
+    .phone-link {
+        background-color: rgba(0, 123, 255, 0.1);
+        padding: 12px 20px;
+        border-radius: 25px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .phone-link:hover {
+        background-color: rgba(0, 123, 255, 0.2);
     }
 }
 
@@ -375,11 +445,6 @@ h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.contact-info:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 4px 10px #007bff; 
-}
-
 .map {
     border-radius: 8px;
     overflow: hidden;
@@ -428,23 +493,6 @@ footer {
 .highlight {
     color: #007bff;
     font-weight: 600;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .info-section > div {
-        flex-direction: column;
-    }
-
-    .video-container {
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('barbershop-bg.jpg');
-        background-size: cover;
-        background-position: center;
-    }
-
-    .about-content {
-        width: 100%;
-    }
 }
 
 /* Add to your existing CSS */
